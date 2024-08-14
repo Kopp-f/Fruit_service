@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-08-2024 a las 15:16:42
+-- Tiempo de generación: 14-08-2024 a las 16:12:44
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,7 +39,8 @@ CREATE TABLE `caja` (
 --
 
 INSERT INTO `caja` (`id`, `Fecha`, `encargado`, `Ingresos`) VALUES
-(5, '2024-06-18', 'Carlos', 23435353);
+(9, '2024-08-13', 'fabian', 10000),
+(10, '2024-08-14', 'Hayder', 2000);
 
 -- --------------------------------------------------------
 
@@ -57,16 +58,6 @@ CREATE TABLE `pedidos` (
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `pedidos`
---
-
-INSERT INTO `pedidos` (`id`, `id_pedido`, `id_producto`, `hora`, `total`, `cantidad`, `estado`) VALUES
-(24, 20, 1, '11:08:59', 22000, 2, 0),
-(25, 21, 1, '11:09:36', 106500, 1, 0),
-(26, 21, 2, '11:09:36', 106500, 5, 0),
-(27, 21, 5, '11:09:36', 106500, 4, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -75,19 +66,10 @@ INSERT INTO `pedidos` (`id`, `id_pedido`, `id_producto`, `hora`, `total`, `canti
 
 CREATE TABLE `pedidos_enc` (
   `id_pedido` int(11) NOT NULL,
-  `hora` datetime(6) NOT NULL,
+  `hora` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `total` int(150) NOT NULL,
   `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `pedidos_enc`
---
-
-INSERT INTO `pedidos_enc` (`id_pedido`, `hora`, `total`, `estado`) VALUES
-(19, '0000-00-00 00:00:00.000000', 0, 0),
-(20, '0000-00-00 00:00:00.000000', 22000, 0),
-(21, '0000-00-00 00:00:00.000000', 106500, 0);
 
 -- --------------------------------------------------------
 
@@ -124,6 +106,7 @@ INSERT INTO `productos` (`id_producto`, `Nombre_del_producto`, `descripcion`, `P
 
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
+  `id_cargo` int(50) NOT NULL,
   `Nombre` text NOT NULL,
   `Telefono` bigint(20) NOT NULL,
   `Correo` varchar(50) NOT NULL,
@@ -135,8 +118,9 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `Nombre`, `Telefono`, `Correo`, `Contraseña`, `imagen`) VALUES
-(7, 'Fabian', 3133859654, 'fabiankpp3@gmail.com', '8a7296a1a0fca94c0111ca0ed7a249f9bd78e0e61609b44a076e989b6507c5bed17c3b864f46bb1cdc436db26ec6c6e82d4cc1ca60ee96a974a4c0656e8ef664', '');
+INSERT INTO `usuario` (`id_usuario`, `id_cargo`, `Nombre`, `Telefono`, `Correo`, `Contraseña`, `imagen`) VALUES
+(7, 1, 'Fabian', 3133859654, 'fabiankpp3@gmail.com', '8a7296a1a0fca94c0111ca0ed7a249f9bd78e0e61609b44a076e989b6507c5bed17c3b864f46bb1cdc436db26ec6c6e82d4cc1ca60ee96a974a4c0656e8ef664', ''),
+(9, 0, 'kopp', 3133859654, 'fabiankpp3@gmail.com', '8a7296a1a0fca94c0111ca0ed7a249f9bd78e0e61609b44a076e989b6507c5bed17c3b864f46bb1cdc436db26ec6c6e82d4cc1ca60ee96a974a4c0656e8ef664', '');
 
 --
 -- Índices para tablas volcadas
@@ -182,19 +166,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `caja`
 --
 ALTER TABLE `caja`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos_enc`
 --
 ALTER TABLE `pedidos_enc`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -206,7 +190,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
