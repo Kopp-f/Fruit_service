@@ -473,7 +473,7 @@ ul.side-menu{
     flex-basis: 500px;
 }
 
-.content main .bottom-data .orders table{
+/* .content main .bottom-data .orders table{
     width: 100%;
     border-collapse: collapse;
 }
@@ -531,7 +531,7 @@ ul.side-menu{
 .content main .bottom-data .orders table tr td .status.pending{
     background: var(--warning);
 }
-
+ */
 .content main .bottom-data .reminders{
     flex-grow: 1;
     flex-basis: 300px;
@@ -628,20 +628,19 @@ ul.side-menu{
         min-width: 340px;
     }
 
-    .content main .bottom-data .orders table{
-        min-width: 340px;
-    }
+
 
     .content main .bottom-data .reminders .task-list{
         min-width: 340px;
     }
 
 }
+
 /* tablas  */
 
 table.dataTable {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
     margin: 20px 0;
     background: var(--dark-grey);
     border-radius: 8px;
@@ -688,4 +687,9 @@ div.dt-container .dt-search input {
     padding: 5px;
     color: inherit;
     margin-left: 3px;
+}
+
+   
+.swal2-container {
+            z-index: 3000 !important;
 }

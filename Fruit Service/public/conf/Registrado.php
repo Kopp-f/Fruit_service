@@ -11,8 +11,8 @@ echo $nombre, $correo, $telefono, $Contraseña, "<br>";
 
 include "../../modelos/ConexionBD.php";
 
-$sql = "INSERT INTO usuario(Nombre, Correo, Telefono, Contraseña)
-        VALUES ('$nombre', '$correo', '$telefono', '$contraseña_encrip')"; 
+$sql = "INSERT INTO usuario(Nombre, Correo, Telefono, Contraseña,imagen)
+        VALUES ('$nombre', '$correo', '$telefono', '$contraseña_encrip','Imagen_usuario/usuario.png')"; 
 
 if ($conexion->query($sql) === true) {
     echo "registrado"; 
@@ -21,4 +21,4 @@ if ($conexion->query($sql) === true) {
 }
 
 $conexion->close();
-?>
+
