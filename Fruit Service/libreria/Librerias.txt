@@ -1,8 +1,0 @@
-funciones de la tabla con estilos   https://datatables.net/examples/styling/bootstrap5
-alertas    https://sweetalert2.github.io/#download
-iconos  https://ionic.io/ionicons
-enviar mensajes https://github.com/PHPMailer/PHPMailer
-estilos  https://getbootstrap.com
-base de datos actulizar  https://mundosica.github.io/tutorial_hispano_jQuery 
-iconos https://boxicons.com/usage
-pdf https://github.com/dompdf/dompdf
