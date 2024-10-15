@@ -22,6 +22,7 @@ if ($stmt->num_rows == 1) {
     $stmt->fetch();
 
     $_SESSION['nombre'] = $usuario;
+    $_SESSION['loggedin'] = true;
 
     // Consulta para obtener la imagen
     $sql = "SELECT imagen FROM usuario WHERE Nombre = ? LIMIT 1";
